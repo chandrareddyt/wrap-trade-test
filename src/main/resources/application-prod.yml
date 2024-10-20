@@ -1,0 +1,44 @@
+
+spring:
+  mvc:
+    async:
+      request-timeout: 600000
+  datasource:
+    url: jdbc:postgresql://ec2-13-127-18-2.ap-south-1.compute.amazonaws.com:5432/portfolio
+    username: portfolio_user1
+    password: wpportfoliouser#123
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-test-query: "SELECT 1"
+      minimum-idle: 5
+      maximum-pool-size: 10
+      idle-timeout: 30000
+      max-lifetime: 90000
+      connection-timeout: 30000
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      jdbc:
+        batch_size: 500
+      order_inserts: true
+      order_updated: true
+logging:
+  level:
+    root: INFO
+  file:
+    name: /home/ubuntu/wp-trade/logs/application.log
+    max-history: 30
+    max-size: 10MB
+    
+redirect:
+  url: https://127.0.0.1:5000/
+  
+server:
+  port: 8081
+  
+springdoc:
+  swagger-ui:
+    path: /trade/swagger-ui.html
+  api-docs:
+    path: /trade/v3/api-docs

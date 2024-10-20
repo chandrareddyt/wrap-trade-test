@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: local
+jwt:
+  secret: G3n3r4t3dS3cr3tG3n3r4t3dS3cr3tG3n3r4t3dS3cr3t
+  expiration: 604800000
